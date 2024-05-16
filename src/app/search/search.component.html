@@ -1,0 +1,42 @@
+<div class="container"> 
+    <span class="arrow-back" class="material-symbols-outlined" (click)="goBack()">
+      arrow_back
+    </span> &nbsp; <span class="title">Search Stock</span>
+    <div class="sub-container">
+  
+        <div class="search-container">
+            <input type="text" placeholder="Search for stock" (input)="search($event)">
+            <span class="material-symbols-outlined">search</span>
+        </div>
+       
+        <div *ngIf="showFilter" class="showResult">
+            <table style="border-collapse: collapse; width: 100%;">
+                <thead style="border: 1px solid #282626; ">
+                  <tr>
+                    <th>Tyre Size</th>
+                    <th>Quantity</th>
+                    <th>SSP</th>
+                    <th>Total Amount</th>
+                    <th>Price Per Unit</th>
+                    <!-- Add more table headers if needed -->
+                  </tr>
+                </thead>
+              
+                <tbody>
+                  <tr *ngFor="let item of filterData">
+                    <td>{{ item.tyreSize }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.SSP }}</td>
+                    <td>{{ item.totalAmount }}</td>
+                    <td>{{ item.pricePerUnit }}</td>
+                    <!-- Display more properties as needed -->
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="loading" *ngIf="loading"> 
+      <mat-spinner></mat-spinner>  
+  </div>
+ 
+</div>      

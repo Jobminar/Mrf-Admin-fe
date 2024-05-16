@@ -1,0 +1,40 @@
+<div class="container"> 
+  <div class="back-arw">
+    <span class="material-symbols-outlined" (click)="goBack()">
+      arrow_back
+    </span> &nbsp; <span class="title">Closing Stock</span>
+  </div>
+  <div class="sub-container">
+
+    <form [formGroup]="dates" (input)="gettingDate()">
+      <input type="date" formControlName="date" [max]="maxDate" placeholder="please select the date">
+    </form>
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Tyre Size</th>
+            <th>Quantity</th>
+            <th>SSP</th>
+            <th>Location</th>
+            <!-- Add more table headers if needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{ item.tyreSize }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.SSP }}</td>
+            <td>{{ item.location }}</td>
+            <!-- Display more properties as needed -->
+          </tr>
+        </tbody>
+    </table>
+    <div class="print">
+      <button (click)="print()">Print</button>
+    </div>
+  </div>
+  <div class="loading" *ngIf="loading"> 
+    <mat-spinner></mat-spinner>  
+  </div>
+  
+</div>      

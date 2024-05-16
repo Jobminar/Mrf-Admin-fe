@@ -1,0 +1,49 @@
+<div class="container"> 
+    <span class="material-symbols-outlined" (click)="goBack()">
+      arrow_back
+    </span> &nbsp; <span class="title">Special Report</span>
+    <div class="sub-container">
+  
+      <!-- <form [formGroup]="dates" (input)="gettingDate()">
+        <input type="date" formControlName="date" placeholder="please select the date">
+      </form> -->
+      <table style="border-collapse: collapse; width: 98%;">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Customer Name</th>
+              <th>Tyre Size</th>
+              <th>Quantity</th>
+              
+              <th>Phone Number</th>
+              <th>Location</th>
+              
+              
+             
+              <!-- Add more table headers if needed -->
+            </tr>
+          </thead>
+      
+          <tbody>
+            <tr *ngFor="let item of data">
+              <td>{{ item.date }}</td>
+              <td>{{ item.customerName }}</td>
+              <td>{{ item.tyreSize }}</td>
+              <td>{{ item.quantity }}</td>
+              
+             
+              <td>{{ item.phoneNumber }}</td>
+              <td>{{ item.location }}</td>
+              
+              <!-- Display more properties as needed -->
+            </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="loading" *ngIf="loading"> 
+      <mat-spinner></mat-spinner>  
+  </div>
+  <!-- <div>
+    <button (click)="print()">Print</button>
+  </div> -->
+  </div>      

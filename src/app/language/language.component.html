@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="arrow">
+        <span class="material-symbols-outlined" (click)="goBack()">
+        arrow_back
+      </span>
+    </div>
+    <div class="sub-container">
+       
+        
+        @for (item of buttons; track $index) {
+           <div class="btn-container"> <button (click)="navigateTo(item.navTo)">{{item.name}}</button></div>
+        }
+       
+    </div>
+</div>

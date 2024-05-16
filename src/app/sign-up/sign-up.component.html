@@ -1,0 +1,45 @@
+<div class="container">
+    <span class="material-symbols-outlined" (click)="goBack()">
+        arrow_back
+    </span>
+    <div class="sub-container">
+        <span class="create-txt">Create an Account</span>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <!-- <div>
+                <label for="name">Name:</label>
+                <br>
+                <input type="text" id="name" formControlName="name">
+            </div> -->
+
+            <div>
+                <label for="phone">Phone Number:</label>
+                <br>
+                <input type="text" id="phone" formControlName="phone">
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <br>
+                <div class="input-with-button">
+                    <input [type]="passwordVisible ? 'text' : 'password'" id="password" formControlName="password">
+                    <button type="button" class="show-password" (click)="togglePasswordVisibility()">
+                        {{ passwordVisible ? 'Hide' : 'Show' }}
+                    </button>
+                </div>
+                
+            </div>
+
+            <div>
+                <input type="checkbox"class="terms" id="terms" formControlName="terms">
+                <label for="terms">I agree to the terms and conditions</label>
+            </div>
+            <button class="submit-btn" type="submit" [disabled]="!signUpForm.valid">Sign Up</button>
+           <br>
+           <br>
+            <div style="text-align: center;">Already have an account? <a (click)="navToLogIn()">Log In</a></div>
+        </form>
+    </div>
+</div>
+<div class="loading" *ngIf="loading"> 
+    <mat-spinner></mat-spinner>  
+</div>

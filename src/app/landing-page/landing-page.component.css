@@ -1,0 +1,16 @@
+.container
+{
+    height: 98vh;
+    width: 100%;
+    align-items: center;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+}
+.sub-container{
+    position: relative;
+    /* top: 30%; */
+    /* left: 2%; */
+    /* border: 1px solid black; */
+   
+}

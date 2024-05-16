@@ -1,0 +1,52 @@
+<div class="container">
+    <span class="material-symbols-outlined" (click)="goBack()">
+        arrow_back
+    </span> &nbsp; <span class="title">Stock input</span>
+    <div class="sub-container">
+        <form (ngSubmit)="submitForm()">
+            <!-- <div class="input-div">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" [(ngModel)]="formData.date" required>
+            </div> -->
+            <div class="input-div">
+                <label for="date">Date:</label>
+                <!-- Logic to restrict date selection to one week back -->
+                <input type="date" id="date" name="date" [max]="maxDate" [min]="minDate" [(ngModel)]="formData.date" required>
+            </div>
+            
+            <div class="input-div">
+            <label for="tyreSize">Tyre Size</label>
+            <input type="text" id="tyreSize" name="tyreSize" [(ngModel)]="formData.tyreSize" required>
+            </div>
+            <div class="input-div">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" [(ngModel)]="formData.quantity" (input)="calculatePricePerUnit()"required>
+            </div>
+            <div class="input-div">
+            <label for="SSP">SSP</label>
+            <input type="text" id="SSP" name="SSP" [(ngModel)]="formData.SSP" required>
+            </div>
+            <div class="input-div">
+                <label for="amount">Invoice Amount</label>
+                <input type="number" id="amount" name="amount" [(ngModel)]="formData.totalAmount" (input)="calculatePricePerUnit()" required>
+            </div>
+            <div class="input-div">
+                <label for="pricePerUnit">Price Per Unit</label>
+                <!-- Display calculated price per unit -->
+                <input type="number" id="pricePerUnit" name="pricePerUnit" [(ngModel)]="formData.pricePerUnit" required disabled>
+            </div>
+            <div class="input-div">
+                <label for="comment">Comments</label>
+                <textarea id="comment" name="comment" rows="4" cols="50" [(ngModel)]="formData.comment" required></textarea>
+            </div>
+            <div class="button-div">
+                <button type="submit" reset>Submit</button>
+                <button type="reset">Clear Form</button>
+            </div>
+        </form>
+    </div>
+</div> 
+
+<div class="loading" *ngIf="loading"> 
+    <mat-spinner></mat-spinner>  
+</div>

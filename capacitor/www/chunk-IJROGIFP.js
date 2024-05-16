@@ -1,0 +1,1 @@
+import{b as s}from"./chunk-CTMQ267V.js";import{d as o}from"./chunk-TMC7WMLO.js";var e=class extends s{print(){return o(this,null,function*(){console.log("Not supported web browsers!")})}};export{e as PrinterWeb};

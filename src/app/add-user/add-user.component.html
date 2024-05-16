@@ -1,0 +1,50 @@
+<div class="container">
+    <span class="material-symbols-outlined" (click)="goBack()">
+        arrow_back
+    </span>
+    <div class="image-container">
+        <img src="assets\starting\Group 958.png">
+        <br>
+        <span class="welcome-tittle">WELCOME</span>
+    </div>
+    <div class="sub-container">
+        <form [formGroup]="logInForm" (ngSubmit)="login()">
+            <div>
+                <label for="userLocation">User Location</label>
+                <select id="location" formControlName="location">
+                    <option value="Alkapuri">Alkapuri</option>
+                    <option value="Hayath Nagar">Hayath Nagar</option>
+                    
+                </select>
+               
+            </div>
+            <div>
+                <label for="username">User Name</label>
+                <input type="text" id="username" name="username" formControlName="username" >
+            </div>
+            <div>
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber" >
+            </div>
+            
+            
+            <div>
+                <label for="password">Password</label>
+                <div class="input-with-button">
+                    <input [type]="passwordVisible ? 'text' : 'password'" id="password" formControlName="password">
+                    <button type="button" class="show-password" (click)="togglePasswordVisibility()">
+                        {{ passwordVisible ? 'Hide' : 'Show' }}
+                    </button>
+                </div>
+            </div>
+
+            <button class="submit-btn" type="submit">Add User</button>
+            <br>
+           
+        </form>
+       
+    </div>
+</div>
+<div class="loading" *ngIf="loading"> 
+    <mat-spinner></mat-spinner>  
+</div>
